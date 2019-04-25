@@ -138,11 +138,11 @@ def r_format(instruction):
         if len(second) > len(first):
             for i in range(len(second)-len(first)):
                 first.append("0")
-            first = first.reverse()
+            first.reverse()
         elif len(first) > len(second):
             for i in range(len(first)-len(second)):
                 second.append("0")
-            second = second.reverse()
+            second.reverse()
 
         for i in range(len(first)):
             if (first[i] == "1" and second[i] == "1") or (first[i] == "1" and second[i] == "0") or (first[i] == "0" and second[i] == "1"):
