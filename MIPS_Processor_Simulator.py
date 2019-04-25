@@ -1,4 +1,4 @@
-registers = ["0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000"]
+registers = ["0000","0000","DD","0000","158","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000"]
 mem = ["0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000","0000"]
 pc = 0
 
@@ -155,16 +155,16 @@ def r_format(instruction):
         first = list(hToB(registers[rs]))
         second = list(hToB(registers[rt]))
         third = []
-
+        print(len(first), first, "  ", second, len(second))
         if len(second) > len(first):
             for i in range(len(second)-len(first)):
                 first.append("0")
-            first = first.reverse()
+            first.reverse()
         elif len(first) > len(second):
             for i in range(len(first)-len(second)):
                 second.append("0")
-            second = second.reverse()
-
+            second.reverse()
+        print(first, second)
         for i in range(len(first)):
             third.append(str( int(first[i]) * int(second[i]) ))
         
